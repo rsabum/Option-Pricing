@@ -1,7 +1,7 @@
 from models import model
 import numpy as np
 
-def Fixed_Lookback_Option(
+def Fixed_Strike_Lookback_Option(
     asset_model: model,
     initial_price: float,
     strike: float,
@@ -57,7 +57,7 @@ def Fixed_Lookback_Option(
         return np.mean(VALUE[:, 0])
     
 
-def Floating_Lookback_Option(
+def Floating_Strike_Lookback_Option(
     asset_model: model,
     initial_price: float,
     period: int,

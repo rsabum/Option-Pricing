@@ -1,6 +1,6 @@
-# Supported Price Models
+# Price Models
 
-## Stationary Model
+### Stationary Model
 the Stationary Model follows a Geometric Brownian Motion with constant drift and volatility:
 
 $$ dS_t = \mu S_t ~ dt + \sigma S_t ~ dW $$ 
@@ -8,7 +8,7 @@ $$ dS_t = \mu S_t ~ dt + \sigma S_t ~ dW $$
 where $\mu$ is the drift rate, $\sigma$ is the volatility, and $dW$ is a Wiener processes increment.
 
 
-## Stochastic Volatility Model
+### Stochastic Volatility Model
 the Stochastic Volatility Model (Heston Model) extends Geometric Brownian motion to incorporate a mean reverting stochastic volatility process:
 
 $$ dS_t = \mu S_t ~ dt + \sqrt{V_t} S_t ~ dW_{S,t} $$
@@ -17,7 +17,7 @@ $$ dV_t = \kappa (\theta - V_t) ~ dt + \sigma \sqrt{V_t} ~ dW_{V,t} $$
 
 where $V_t$ denotes the stochastic volatility process, $\mu$ is the asset's drift rate, $\kappa$ is the mean-reversion rate of volatility, $\theta$ is the long-term average volatility, $\sigma$ is the volatility of volatility, and $dW_{S,t}$ and $dW_{V,t}$ are $\rho$ correlated Wiener processes for the stock price and volatility, respectively.
 
-## Jump Diffusion Model
+### Jump Diffusion Model
 the Jump Diffusion Model extends Geometric Brownian Motion to incorporate log normal jumps in the asset's price:
 
 $$ dS_t = \mu S_t ~ dt + \sigma S_t ~ dW_t + S_t ~ dJ_t $$ 

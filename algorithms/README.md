@@ -1,15 +1,13 @@
-# Suported Contracts
-In this section we go over the supported contracts as well as their respective dynamic programming formulations. Before that let us outline some notation:
+# Pricing Algorithms
 
+## Dynamic Programming Formulation
+In this project we assume that the theoretica value of an option contract is recursively dependent on the theoretical value of future states. Therefore we employ the bellman optimality condition to model their value given undelying price $S_t$ and exercise (Terminal) value function $C(S_t, \dots)$. We first define the following:
 - $t$ the current time step.
 - $T$ expiry time step.
 - $S_t$ the contract's underliying price at time $t$
 - $V(S_t)$ is the options theoretical value when its underlying asset is valued at $S_t$.
 - $C(S_t, \dots)$ is the options exercise value given its current price $S_t$ and some additional variables.
 - $K$ the strike price of our option or $K_1, \dots, K_n$ if there are multiple strikes.
-
-## Dynamic Programming Formulation
-In this project we assume that the theoretica value of an option contract is recursively dependent on the theoretical value of future states. Therefore we employ the bellman optimality condition to model their value given undelying price $S_t$ and exercise (Terminal) value function $C(S_t, \dots)$. We first split the options into two different exercise types
 
 ### European Exercise
 European exercise only allows one to exercise the contract at $t = T$ and therefore we only need to recursively consider the terminal states in our option valuation.
