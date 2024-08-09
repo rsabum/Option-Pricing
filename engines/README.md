@@ -8,9 +8,9 @@ Given a strike price $K$ let our option's exercise value, $C(S_t)$, can be defin
 $$
 V(S_t) = 
 \begin{cases}
-t = T \Rightarrow C(S_t)
+t = T \implies C(S_t)
 \\\\
-t \lt T \Rightarrow \max\left\{ C(S_t), ~~\mathbb{E}\bigg[V(S_{t + dt})\bigg]\right\}
+t \lt T \implies \max\left\{ C(S_t), ~~\mathbb{E}\bigg[V(S_{t + dt})\bigg]\right\}
 \end{cases}
 $$
 
@@ -19,8 +19,8 @@ and in the case of european exercise:
 $$
 V(S_t) = 
 \begin{cases}
-t = T \Rightarrow C(S_t)
+t = T \implies C(S_t)
 \\\\
-t \lt T \Rightarrow \mathbb{E}\bigg[V(S_{t + dt})\bigg]
+t \lt T \implies \mathbb{E}\bigg[V(S_{t + dt})\bigg]
 \end{cases}
 $$
