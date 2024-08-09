@@ -3,7 +3,7 @@ import numpy as np
 
 def Price_Vanilla_Option(
     asset_model: model,
-    asset_price: float,
+    initial_price: float,
     strike: float,
     periods: int,
     num_simulations: int,
@@ -20,7 +20,7 @@ def Price_Vanilla_Option(
 
 
     PRICE = asset_model.simulate(
-        S0=asset_price, 
+        S0=initial_price, 
         T=periods, 
         M=num_simulations, 
         N=num_timesteps

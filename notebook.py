@@ -1,4 +1,4 @@
-from engines.vanilla import PriceVanillaEuropean, PriceVanillaAmerican
+from engines.basket import Price_Basket_Option
 from models import StationaryModel
 import numpy as np
 
@@ -6,24 +6,12 @@ import numpy as np
 
 if __name__ == '__main__':
 
-    print(PriceVanillaEuropean(
-        asset_model=StationaryModel(mu=0.5, sigma=0.1),
-        asset_price=100,
+    print(Price_Basket_Option(
+        asset_models=[StationaryModel(mu=0.15, sigma=0) for i in range(5)],
+        asset_weights=[0.2 for i in range(5)],
+        initial_prices=[100 for i in range(5)],
         strike=100,
         periods=1,
-        num_simulations=1000,
-        num_timesteps=252,
-        option_type='call'
-
-    ))
-
-    print(PriceVanillaEuropean(
-        asset_model=StationaryModel(mu=0.5, sigma=0.1),
-        asset_price=100,
-        strike=100,
-        periods=1,
-        num_simulations=1000,
-        num_timesteps=252,
-        option_type='put'
-
+        num_simulations=100,
+        num_timesteps=252
     ))

@@ -4,7 +4,7 @@ import numpy as np
 
 def Price_Barrier_Option(
     asset_model: model,
-    asset_price: float,
+    initial_price: float,
     barrier: float,
     strike: float,
     period: int,
@@ -32,7 +32,7 @@ def Price_Barrier_Option(
     
 
     PRICE = asset_model.simulate(
-        S0=asset_price, 
+        S0=initial_price, 
         T=period, 
         M=num_simulations, 
         N=num_timesteps
