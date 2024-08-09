@@ -74,7 +74,9 @@ class StochasticVolatilityJumpModel():
         self.mu_J = mu_J
         self.sigma_J = sigma_J
 
-    def simulate_path(self, S0: float, V0: float, T: float, M: int, N: int):
+        self.V0 = theta
+
+    def simulate_path(self, S0: float, T: float, M: int, N: int):
         """
         Simulates the path of the asset price and variance over time using the Bates model.
 
@@ -103,7 +105,7 @@ class StochasticVolatilityJumpModel():
         V = np.zeros((M, N + 1))
 
         S[:, 0] = S0
-        V[:, 0] = V0
+        V[:, 0] = self.V0
 
         for t in range(1, N+1):
             Z1 = np.random.normal(size=(M,))
