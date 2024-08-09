@@ -27,7 +27,7 @@ V(S_t ~~\vert~~ C(S_t, \dots)) =
 \begin{cases}
 t = T \implies C(S_t, \dots)
 \\\\
-t \lt T \implies \max\bigg\lbrace C(S_t), ~~\mathbb{E}\bigg[V(S_{t + dt} ~~\vert~~ C(S_t, \dots)) ~~\bigg\vert~~ S_t\bigg]\bigg\rbrace
+t \lt T \implies \max\bigg\lbrace C(S_t), ~~\mathbb{E}\bigg[V(S_{t + dt} ~~\vert~~ C(S_t, \dots)) ~~\vert~~ S_t\bigg]\bigg\rbrace
 \end{cases}
 $$
 
