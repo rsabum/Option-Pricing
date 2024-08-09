@@ -1,7 +1,7 @@
 # Pricing Algorithms
 
-## Dynamic Programming Formulation
-In this project we assume that the theoretica value of an option contract is recursively dependent on the theoretical value of future states. Therefore we employ the bellman optimality condition to model their value given undelying price $S_t$ and exercise (Terminal) value function $C(S_t, \dots)$. We first define the following:
+## General Dynamic Programming Formulation
+In this project we assume that the theoretical value of an option contract is recursively dependent on the theoretical value of future states. Therefore we employ the bellman optimality condition to model their value given undelying price $S_t$ and exercise (Terminal) value function $C(S_t, \dots)$. We first define the following:
 - $t$ the current time step.
 - $T$ expiry time step.
 - $S_t$ the contract's underliying price at time $t$
@@ -23,9 +23,11 @@ American exercise allows for exercise at any $t \le T$ therefore, to calculate t
 $$
 V(S_t ~~\vert~~ C(S_t, \dots)) = 
 \begin{cases}
-t = T \implies C(S_t, \dots)
+\begin{align*}
+t = T &\implies C(S_t, \dots)
 \\\\
-t \lt T \implies \max\bigg\lbrace C(S_t), ~~\mathbb{E}\bigg[V(S_{t + dt} ~~\vert~~ C(S_t, \dots)) ~~\vert~~ S_t\bigg]\bigg\rbrace
+t \lt T &\implies \max\bigg\lbrace C(S_t), ~~\mathbb{E}\bigg[V(S_{t + dt} ~~\vert~~ C(S_t, \dots)) ~~\vert~~ S_t\bigg]\bigg\rbrace
+\end{align*}
 \end{cases}
 $$
 
