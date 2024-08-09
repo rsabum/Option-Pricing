@@ -1,5 +1,4 @@
-torch
 numpy
-chess
+scipy
 matplotlib
 tqdm
