@@ -8,7 +8,7 @@ In this section we go over the supported contracts as well as their respective d
 - $C(S_t, \dots)$ is the options exercise value given its current price $S_t$ and some additional variables.
 - $K$ the strike price of our option or $K_1, \dots, K_n$ if there are multiple strikes.
 
-## Recurrence Relations
+## Dynamic Programming Formulation
 In this project we assume that the theoretica value of an option contract is recursively dependent on the theoretical value of future states. Therefore we employ the bellman optimality condition to model their value given undelying price $S_t$ and exercise (Terminal) value function $C(S_t, \dots)$. We first split the options into two different exercise types
 
 ### European Exercise
