@@ -13,10 +13,10 @@ def Price_Vanilla_Option(
 ):
     
     if call_option:
-        exercise_value = lambda s: max(s - strike, 0)
+        exercise_value = lambda price: max(price - strike, 0)
 
     else:
-        exercise_value = lambda s: max(strike - s, 0)
+        exercise_value = lambda price: max(strike - price, 0)
 
 
     PRICE = asset_model.simulate(
