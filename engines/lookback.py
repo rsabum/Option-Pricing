@@ -1,7 +1,6 @@
 from models import model
 import numpy as np
 
-
 def Price_Fixed_Lookback_Option(
     asset_model: model,
     initial_price: float,

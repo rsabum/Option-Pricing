@@ -1,7 +1,6 @@
 import numpy as np
-from ._model import model
 
-class JumpDiffusionModel(model):
+class JumpDiffusionModel():
     """
     An extension of the Stationary Model to incorporate stochastic jumps in the assets price.
 

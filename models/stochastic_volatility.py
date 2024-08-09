@@ -1,7 +1,6 @@
 import numpy as np
-from ._model import model
 
-class StochasticVolatilityModel(model):
+class StochasticVolatilityModel():
     """
     An extension of the Stationary Model to include a mean reverting stochastic voaltility component.
 

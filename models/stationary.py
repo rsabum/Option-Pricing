@@ -1,7 +1,6 @@
 import numpy as np
-from ._model import model
 
-class StationaryModel(model):
+class StationaryModel():
     """
     A Stationary Model for simulating the dynamics of an asset price
     usgin Geometric Brownian Motion with constant drift and volatility.

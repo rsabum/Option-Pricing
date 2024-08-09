@@ -1,7 +1,6 @@
 import numpy as np
-from ._model import model
 
-class MeanRevertingModel(model):
+class MeanRevertingModel():
     """
     An Ornstein-Uhlenbeck model for simulating the dynamics of a mean reverting asset
     with constant volatility.
