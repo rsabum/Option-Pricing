@@ -1,7 +1,7 @@
 from models import model
 import numpy as np
 
-def Price_Vanilla_Option(
+def Vanilla_Option(
     asset_model: model,
     initial_price: float,
     strike: float,

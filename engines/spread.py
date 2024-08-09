@@ -1,7 +1,7 @@
 from models import model
 import numpy as np
 
-def Price_Spread_Option(
+def Spread_Option(
     asset_model_1: model,
     asset_model_2: model,
     initial_price_1: float,

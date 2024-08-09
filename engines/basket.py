@@ -1,7 +1,7 @@
 from models import model
 import numpy as np
 
-def Price_Basket_Option(
+def Basket_Option(
     asset_models: list[model],
     asset_weights: list[float],
     initial_prices: list[float],

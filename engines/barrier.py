@@ -1,7 +1,7 @@
 from models import model
 import numpy as np
 
-def Price_Barrier_Option(
+def Barrier_Option(
     asset_model: model,
     initial_price: float,
     barrier: float,

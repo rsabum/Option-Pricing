@@ -1,7 +1,7 @@
 from models import model
 import numpy as np
 
-def Price_Asian_Option(
+def Asian_Option(
     asset_model: model,
     initial_price: float,
     strike: float,

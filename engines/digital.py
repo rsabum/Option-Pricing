@@ -1,7 +1,7 @@
 from models import model
 import numpy as np
 
-def Price_Cash_Digital(
+def Cash_Digital_Option(
     asset_model: model,
     initial_price: float,
     strike: float,
@@ -49,7 +49,7 @@ def Price_Cash_Digital(
         return np.mean(VALUE[:, 0])
     
 
-def Price_Asset_Digital(
+def Asset_Digital_Option(
     asset_model: model,
     initial_price: float,
     strike: float,
@@ -96,7 +96,7 @@ def Price_Asset_Digital(
         return np.mean(VALUE[:, 0])
     
 
-def Price_Cash_Double_Digital(
+def Cash_Double_Digital_Option(
     asset_model: model,
     initial_price: float,
     lower_strike: float,
@@ -139,7 +139,7 @@ def Price_Cash_Double_Digital(
         return np.mean(VALUE[:, 0])
     
 
-def Price_Asset_Double_Digital(
+def Asset_Double_Digital_Option(
     asset_model: model,
     initial_price: float,
     lower_strike: float,
