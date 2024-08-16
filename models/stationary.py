@@ -16,8 +16,6 @@ class StationaryModel():
     --------
     simulate(S0, T, M, N):
         Simulates the path of the asset price over time using GBM.
-    fit(prices):
-        Fits the GBM model to historical price data using Maximum Likelihood Estimation.
     """
 
     def __init__(
