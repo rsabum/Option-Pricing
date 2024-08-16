@@ -73,7 +73,7 @@ class JumpDiffusionModel():
         --------
         S : ndarray
             Simulated asset price paths with shape (M, N + 1), where M is the number of paths and N + 1 is the number of time steps.
-        """\
+        """
         
         # Calculate time increment for each step
         dt = T / N  
