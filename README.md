@@ -53,7 +53,32 @@ where
 
 ## Contracts Considered
 
-### [Asians](algorithms/asian.py) (Geometric and Arithmetic Averaging)
+### Asians [algorithms/asian.py](algorithms/asian.py)
+- Arithmetic Averaging
+- Geometric Averaging
+
+### Barriers [algorithms/barrier.py](algorithms/barrier.py) 
+- Up-and-In
+- Up-and-Out
+- Down-and-In
+- Down-and-Out
+
+
+### Digitals [algorithms/digital.py](algorithms/digital.py)
+- Cash-or-Nothing
+- Asset-or-Nothing
+- Cash-or-Nothing Double Digital
+- Asset-or-Nothing Double Digital
+
+### Lookbacks [algorithms/lookback.py](algorithms/lookback.py)
+- Fixed Strike
+- Floating Strike
+
+### Baskets [algorithms/basket.py](algorithms/basket.py)
+
+### Spreads [algorithms/spread.py](algorithms/spread.py)
+
+<!-- ### [Asians](algorithms/asian.py) (Geometric and Arithmetic Averaging)
 An Asian option's payoff is determined by the arithmetic or geometric average price of the underlying asset over its duration, rather than its price at a particular moment. Let $\mu(S_t)$ represent the running arithmetic or geometric average of the underlying asset up to time $t$:
 $$
 \begin{align*}
@@ -221,7 +246,7 @@ $$
 C(S_t) &= \max\left\{(S_t^{(1)} - S_t^{(2)}) - K,~~ 0\right\} \\
 P(S_t) &= \max\left\{K - (S_t^{(1)} - S_t^{(2)}),~~ 0\right\}
 \end{align*}
-$$
+$$ -->
 
 
 
