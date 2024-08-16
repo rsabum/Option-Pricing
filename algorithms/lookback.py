@@ -15,7 +15,9 @@ def Fixed_Strike_Lookback_Option(
     """
     Calculates the price of a Fixed-Strike Lookback option using Monte Carlo simulation.
 
-    A Fixed-Strike Lookback option is a financial derivative that allows the holder to exercise the option at the best price observed over the life of the option, with the strike price fixed at the time of option issuance.
+    A Fixed-Strike Lookback option is a financial derivative that allows the holder to 
+    exercise the option at the best price observed over the life of the option, with the 
+    strike price fixed at the time of option issuance.
 
     Parameters:
     -----------
@@ -39,7 +41,8 @@ def Fixed_Strike_Lookback_Option(
     Returns:
     --------
     float
-        The estimated price of the Fixed-Strike Lookback option based on the Monte Carlo simulations and the provided parameters.
+        The estimated price of the Fixed-Strike Lookback option based on the Monte Carlo 
+        simulations and the provided parameters.
     """
 
 
@@ -115,7 +118,9 @@ def Floating_Strike_Lookback_Option(
     """
     Calculates the price of a Floating-Strike Lookback option using Monte Carlo simulation.
 
-    A Floating-Strike Lookback option is a financial derivative that allows the holder to exercise the option at the best price observed over the life of the option. The strike price is set based on the minimum (for a call) or maximum (for a put) price observed during the option's lifetime.
+    A Floating-Strike Lookback option is a financial derivative that allows the holder to exercise 
+    the option at the best price observed over the life of the option. The strike price is set based 
+    on the minimum (for a call) or maximum (for a put) price observed during the option's lifetime.
 
     Parameters:
     -----------
@@ -137,7 +142,8 @@ def Floating_Strike_Lookback_Option(
     Returns:
     --------
     float
-        The estimated price of the Floating-Strike Lookback option based on the Monte Carlo simulations and the provided parameters.
+        The estimated price of the Floating-Strike Lookback option based on the Monte Carlo 
+        simulations and the provided parameters.
     """
 
 

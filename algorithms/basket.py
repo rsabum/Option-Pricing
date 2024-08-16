@@ -16,7 +16,9 @@ def Basket_Option(
     """
     Calculates the price of a Basket option using Monte Carlo simulation.
 
-    A Basket option is a financial derivative where the payoff depends on the performance of a portfolio of multiple underlying assets. The price of the option is determined by the combined behavior of these assets.
+    A Basket option is a financial derivative where the payoff depends on the performance 
+    of a portfolio of multiple underlying assets. The price of the option is determined by 
+    the combined behavior of these assets.
 
     Parameters:
     -----------

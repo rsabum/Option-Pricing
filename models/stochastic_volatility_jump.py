@@ -2,7 +2,7 @@ import numpy as np
 
 class StochasticVolatilityJumpModel():
     """
-    An extension of the Heston Stochastic Volatility model to incorporate stochastic
+    An extension of the Stochastic Volatility model to incorporate stochastic
     jumps in the asset price.
 
     Attributes:

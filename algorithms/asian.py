@@ -16,7 +16,8 @@ def Asian_Option(
     """
     Calculates the price of an Asian option using Monte Carlo simulation.
 
-    An Asian option is a type of financial derivative where the payoff is based on the average price of the underlying asset over a specified period.
+    An Asian option is a type of financial derivative where the payoff is based on the 
+    average price of the underlying asset over a specified period.
 
     Parameters:
     -----------

@@ -16,7 +16,9 @@ def Cash_Digital_Option(
     """
     Calculates the price of a Cash-or-Nothing digital option using Monte Carlo simulation.
 
-    A Cash-or-Nothing digital option is a financial derivative that provides a fixed cash payoff if the option is in-the-money at maturity, regardless of the magnitude by which it is in-the-money.
+    A Cash-or-Nothing digital option is a financial derivative that provides a fixed cash 
+    payoff if the option is in-the-money at maturity, regardless of the magnitude by which 
+    it is in-the-money.
 
     Parameters:
     -----------
@@ -42,7 +44,7 @@ def Cash_Digital_Option(
     Returns:
     --------
     float
-        The estimated price of the Cash-or-Nothing digital option based on the Monte Carlo simulations and the provided parameters.
+        The estimated value of the Cash-or-Nothing digital option.
     """
 
     # Define the exercise value function based on the type of option (call or put).
@@ -101,7 +103,9 @@ def Asset_Digital_Option(
     """
     Calculates the price of an Asset-or-Nothing digital option using Monte Carlo simulation.
 
-    An Asset-or-Nothing digital option is a financial derivative that provides the value of the underlying asset if the option is in-the-money at maturity. If the option is out-of-the-money, the payoff is zero.
+    An Asset-or-Nothing digital option is a financial derivative that provides the value of 
+    the underlying asset if the option is in-the-money at maturity. If the option is 
+    out-of-the-money, the payoff is zero.
 
     Parameters:
     -----------
@@ -125,7 +129,7 @@ def Asset_Digital_Option(
     Returns:
     --------
     float
-        The estimated price of the Asset-or-Nothing digital option based on the Monte Carlo simulations and the provided parameters.
+        The estimated value of the Asset-or-Nothing digital option.
     """
 
 
@@ -186,7 +190,9 @@ def Cash_Double_Digital_Option(
     """
     Calculates the price of a Cash-or-Nothing Double Digital option using Monte Carlo simulation.
 
-    A Cash-or-Nothing Double Digital option is a financial derivative that pays a fixed amount if the underlying asset's price at maturity is within a specified range defined by two strike prices. If the asset's price is outside this range, the payoff is zero.
+    A Cash-or-Nothing Double Digital option is a financial derivative that pays a fixed amount if 
+    the underlying asset's price at maturity is within a specified range defined by two strike prices. 
+    If the asset's price is outside this range, the payoff is zero.
 
     Parameters:
     -----------
@@ -212,7 +218,7 @@ def Cash_Double_Digital_Option(
     Returns:
     --------
     float
-        The estimated price of the Cash-or-Nothing Double Digital option based on the Monte Carlo simulations and the provided parameters.
+        The estimated value of the Cash-or-Nothing Double Digital option.
     """
 
 
@@ -268,7 +274,9 @@ def Asset_Double_Digital_Option(
     """
     Calculates the price of an Asset-or-Nothing Double Digital option using Monte Carlo simulation.
 
-    An Asset-or-Nothing Double Digital option is a financial derivative that pays the value of the underlying asset if its price at maturity is within a specified range defined by two strike prices. If the asset's price is outside this range, the payoff is zero.
+    An Asset-or-Nothing Double Digital option is a financial derivative that pays the value of the 
+    underlying asset if its price at maturity is within a specified range defined by two strike prices. 
+    If the asset's price is outside this range, the payoff is zero.
 
     Parameters:
     -----------
@@ -292,7 +300,7 @@ def Asset_Double_Digital_Option(
     Returns:
     --------
     float
-        The estimated price of the Asset-or-Nothing Double Digital option based on the Monte Carlo simulations and the provided parameters.
+        The estimated value of the Asset-or-Nothing Double Digital option.
     """
 
 

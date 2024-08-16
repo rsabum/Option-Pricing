@@ -18,7 +18,9 @@ def Barrier_Option(
     """
     Calculates the price of a Barrier option using Monte Carlo simulation.
 
-    A Barrier option is a type of financial derivative where the payoff depends on whether the underlying asset's price reaches a certain barrier level. The option is activated or deactivated based on this barrier.
+    A Barrier option is a type of financial derivative where the payoff depends on whether 
+    the underlying asset's price reaches a certain barrier level. The option is activated 
+    or deactivated based on this barrier.
 
     Parameters:
     -----------
