@@ -2,7 +2,7 @@ import numpy as np
 
 class StochasticVolatilityJumpModel():
     """
-    An extension of the Heston Stochastic Volatility model to incorporate sochastic 
+    An extension of the Heston Stochastic Volatility model to incorporate stochastic
     jumps in the asset price.
 
     Attributes:
@@ -26,43 +26,42 @@ class StochasticVolatilityJumpModel():
 
     Methods:
     --------
-    simulate_path(S0, V0, T, M, N):
-        Simulates the path of the asset price over time.
-
+    simulate(S0, V0, T, M, N):
+        Simulates the path of the asset price over time incorporating stochastic volatility and jumps.
     """
 
     def __init__(
         self,
-        mu: float,
-        kappa: float,
-        theta: float,
-        sigma: float,
-        rho: float,
-        lambda_J: float,
-        mu_J: float,
-        sigma_J: float
+        mu: float = 0.05,
+        kappa: float = 2.0,
+        theta: float = 0.04,
+        sigma: float = 0.5,
+        rho: float = -0.5,
+        lambda_J: float = 0.1,
+        mu_J: float = 0.02,
+        sigma_J: float = 0.1
     ):
         """
-        Initializes the Bates model with the given parameters.
+        Initializes the Stochastic Volatility Jump Model with the given parameters.
 
         Parameters:
         -----------
         mu : float
-            The drift rate of the asset's return.
+            The drift rate of the asset's return. Default is 0.05.
         kappa : float
-            The rate of mean reversion for the variance process.
+            The rate of mean reversion for the variance process. Default is 2.0.
         theta : float
-            The long-term mean of the variance.
+            The long-term mean of the variance. Default is 0.04.
         sigma : float
-            The volatility of the variance process.
+            The volatility of the variance process. Default is 0.5.
         rho : float
-            The correlation between the asset price and variance processes.
+            The correlation between the asset price and variance processes. Default is -0.5.
         lambda_J : float
-            The intensity (or rate) of the jump process.
+            The intensity (or rate) of the jump process. Default is 0.1.
         mu_J : float
-            The mean of the log-normal distribution for jump sizes.
+            The mean of the log-normal distribution for jump sizes. Default is 0.02.
         sigma_J : float
-            The standard deviation of the log-normal distribution for jump sizes.
+            The standard deviation of the log-normal distribution for jump sizes. Default is 0.1.
         """
 
         self.mu = mu
@@ -74,11 +73,10 @@ class StochasticVolatilityJumpModel():
         self.mu_J = mu_J
         self.sigma_J = sigma_J
 
-        self.V0 = theta
-
-    def simulate_path(self, S0: float, T: float, M: int, N: int):
+    def simulate(self, S0: float, T: float, M: int, N: int):
         """
-        Simulates the path of the asset price and variance over time using the Bates model.
+        Simulates the path of the asset price and variance over time incorporating
+        stochastic volatility and jumps.
 
         Parameters:
         -----------
@@ -87,53 +85,54 @@ class StochasticVolatilityJumpModel():
         V0 : float
             Initial variance.
         T : float
-            Total time horizon.
+            Total time horizon for the simulation.
         M : int
-            Number of simulated paths.
+            Number of simulated paths (trajectories) to generate.
         N : int
-            Number of time steps.
+            Number of time steps in each path.
 
         Returns:
         --------
         S : ndarray
-            Simulated asset price paths, shape (N + 1, M).
+            Simulated asset price paths with shape (M, N + 1), where M is the number of paths and N + 1 is the number of time steps.
         """
 
-        dt = T / N
+        # Calculate time increment for each step
+        dt = T / N  
 
+        # Initialize arrays to hold asset price paths and variance paths
         S = np.zeros((M, N + 1))
         V = np.zeros((M, N + 1))
 
-        S[:, 0] = S0
-        V[:, 0] = self.V0
+        S[:, 0] = S0            # Set initial price for all paths
+        V[:, 0] = self.theta    # Set initial variance to the long-term mean
 
-        for t in range(1, N+1):
+        for t in range(1, N + 1):
+            # Generate correlated Brownian motion increments
             Z1 = np.random.normal(size=(M,))
             Z2 = np.random.normal(size=(M,))
             dW_1 = np.sqrt(dt) * Z1
             dW_2 = np.sqrt(dt) * (self.rho * Z1 + np.sqrt(1 - self.rho**2) * Z2)
 
-            # Variance process
+            # Simulate the variance process
             V[:, t] = np.maximum(
-                V[:, t-1] + self.kappa * (self.theta - V[:, t-1]) * dt +
-                self.sigma * np.sqrt(V[:, t-1]) * dW_2, 0
+                V[:, t - 1] + self.kappa * (self.theta - V[:, t - 1]) * dt +
+                self.sigma * np.sqrt(V[:, t - 1]) * dW_2, 0
             )
 
-            # Price process without jumps
-            S[:, t] = S[:, t-1] * np.exp(
-                (self.mu - 0.5 * V[:, t-1]) * dt + 
-                np.sqrt(V[:, t-1]) * dW_1
+            # Simulate the asset price process without jumps
+            S[:, t] = S[:, t - 1] * np.exp(
+                (self.mu - 0.5 * V[:, t - 1]) * dt +
+                np.sqrt(V[:, t - 1]) * dW_1
             )
 
-            # Jump component
-            Jumps = np.random.poisson(self.lambda_J * dt, M)  # Number of jumps
+            # Generate jumps
+            Jumps = np.random.poisson(self.lambda_J * dt, M)  # Number of jumps per path
             JumpSizes = np.exp(
                 np.random.normal(self.mu_J, self.sigma_J, M)
-            ) - 1
+            ) - 1  # Sizes of the jumps
 
-            # Adjust Price for jumps
+            # Adjust price paths for jumps
             S[:, t] *= (1 + Jumps * JumpSizes)
 
         return S
-    
-    

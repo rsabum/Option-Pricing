@@ -3,73 +3,78 @@ import numpy as np
 class StationaryModel():
     """
     A Stationary Model for simulating the dynamics of an asset price
-    usgin Geometric Brownian Motion with constant drift and volatility.
+    using Geometric Brownian Motion (GBM) with constant drift and volatility.
 
     Attributes:
     -----------
     mu : float
-        The drift rate of the asset's return.
+        The drift rate of the asset's return, representing the average rate of return of the asset.
     sigma : float
-        The volatility of the asset's return.
+        The volatility of the asset's return, representing the standard deviation of the return.
 
     Methods:
     --------
     simulate(S0, T, M, N):
-        Simulates the path of the asset price over time.
+        Simulates the path of the asset price over time using GBM.
     fit(prices):
         Fits the GBM model to historical price data using Maximum Likelihood Estimation.
-
     """
 
     def __init__(
         self,
-        mu: float,
-        sigma: float
+        mu: float = 0.05,
+        sigma: float = 0.04
     ):
         """
-        Initializes a Jump Diffusion model with the given parameters.
+        Initializes a StationaryModel with the given parameters.
 
         Parameters:
         -----------
         mu : float
-            The drift rate of the asset's return.
+            The drift rate of the asset's return. Default is 0.05.
         sigma : float
-            The volatility of the asset's return.
+            The volatility of the asset's return. Default is 0.04.
         """
-
+        
         self.mu = mu
         self.sigma = sigma
 
     def simulate(self, S0: float, T: float, M: int, N: int):
         """
-        Simulates the path of the asset price and variance over time using the Bates model.
+        Simulates the path of the asset price over time using Geometric Brownian Motion (GBM).
 
         Parameters:
         -----------
         S0 : float
-            Initial asset price.
+            Initial asset price, the starting value of the asset.
         T : float
-            Total time horizon.
+            Total time horizon for the simulation, usually in years.
         M : int
-            Number of simulated paths.
+            Number of simulated paths (trajectories) to generate.
         N : int
-            Number of time steps.
+            Number of time steps in each path.
 
         Returns:
         --------
         S : ndarray
-            Simulated asset price paths, shape (N + 1, M).
+            Simulated asset price paths with shape (M, N + 1), where M is the number of paths and N + 1 is the number of time steps.
         """
-        dt = T / N
 
-        S = np.zeros((M, N + 1))
+        # Calculate time increment for each step
+        dt = T / N  
 
-        S[:, 0] = S0
+        # Initialize array to hold asset price paths
+        S = np.zeros((M, N + 1))  
 
-        for t in range(1, N+1):
-            dW = np.random.normal(scale=np.sqrt(dt))
-            S[:, t] = S[:, t-1] * np.exp(
-                (self.mu - 0.5 * self.sigma ** 2) * dt + 
+        S[:, 0] = S0    # Set initial price for all paths
+
+        for t in range(1, N + 1):
+            # Generate Brownian motion increment
+            dW = np.random.normal(scale=np.sqrt(dt), size=M)
+            
+            # Calculate price process with GBM
+            S[:, t] = S[:, t - 1] * np.exp(
+                (self.mu - 0.5 * self.sigma ** 2) * dt +
                 self.sigma * dW
             )
 
