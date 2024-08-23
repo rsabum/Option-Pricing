@@ -1,5 +1,5 @@
 ## Exotic Option Pricing
-In the realm of financial derivatives, exotic options present distinctive features beyond those of vanilla options. While standard options offer straightforward payoffs based on the price of a single asset, exotic options incorporate complex structures to capitalize on unique market conditions. In this project we approximate the value of various exotic options, leveraging Monte Carlo simulation and Backward Dynamic Programming.
+In this project we approximate the value of various exotic options, leveraging Monte Carlo simulation and Dynamic Programming.
 
 ## Dynamic Programming Formulation
 We assume that the present value of an option contract is recursively dependent on the expected future value of the option. Therefore, we employ the Bellman Equations to express the value of an option in terms of the expectation of fututre information. 
